@@ -35,3 +35,34 @@ Run `setup.sh` to generate the Magisk module `.zip` and push it to your device:
 ~~~
 
 Now install it via Magisk and have fun :)
+
+## Warning
+
+**Preferable to set up on Linux!** Zipping Magisk modules on Windows or macOS may result in incompatibility with Magisk's unzip format. If you create the module on one of these systems, you will need to install it via the command line.
+
+Connect through ADB:
+~~~bash
+  adb shell
+~~~
+
+Give `su` privileges:
+~~~bash
+  su
+~~~
+
+Enter the modules folder, create a directory, and navigate into it:
+~~~bash
+  cd /data/adb/modules && mkdir moduleName && cd moduleName
+~~~
+
+Move the generated zip file and unzip it:
+~~~bash
+  mv /sdcard/Download/module.zip . && unzip module.zip && rm -rf module.zip
+~~~
+
+Reboot to apply the changes:
+~~~bash
+  reboot
+~~~
+
+Now you can really have fun ;)
